@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sleep Apnea Detection</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Apnea Detection</title>
 </head>
 <body>
-  <h1>Sleep Apnea Detection</h1>
-
-  <form method="POST" action="/predict">
-    <label for="heart_rate">Heart Rate:</label>
-    <input type="text" name="heart_rate" id="heart_rate" required><br>
-
-    <label for="spo2">Oxygen Level:</label>
-    <input type="text" name="spo2" id="spo2" required><br>
-
-    <label for="breathing">Abdominal Movement:</label>
-    <input type="text" name="breathing" id="breathing" required><br>
-
-    <button type="submit">Predict</button>
-  </form>
-
-  <h2>Prediction: {{ prediction }}</h2>
+    <h1>Sleep Apnea Detection System</h1>
+    <p>Prediction: <strong>{{ prediction }}</strong></p>
+    <p>The system automatically reads data from the Arduino and updates the prediction.</p>
+    <button onclick="window.location.reload();">Refresh Prediction</button>
 </body>
 </html>
