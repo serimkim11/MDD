@@ -3,12 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sleep Apnea Detection</title>
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Sleep Apnea Detection System</h1>
-    <p>Prediction: <strong>{{ prediction }}</strong></p>
-    <p>The system automatically reads data from the Arduino and updates the prediction.</p>
-    <button onclick="window.location.reload();">Refresh Prediction</button>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Sleep Apnea Predictor</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/signup">Signup</a></li>
+                <li class="nav-item"><a class="nav-link" href="/my_page">My Page</a></li>
+                <li class="nav-item"><a class="nav-link" href="/info">Info</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about_us">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="/contact_us">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Welcome to Sleep Apnea Predictor!</h2>
+        <p>{{ prediction }}</p>
+    </div>    
+
+    <!-- Bluetooth Detection Script -->
+    <script>
+        if (navigator.bluetooth) {
+            navigator.bluetooth.requestDevice({ acceptAllDevices: true })
+                .then(device => {
+                    alert("New data detected. Would you like to log in to check?");
+                    window.location.href = '/login'; // Redirect to login if Bluetooth is detected
+                })
+                .catch(error => {
+                    console.log("Bluetooth not connected");
+                });
+        } else {
+            alert("Bluetooth not supported on this device");
+        }
+    </script>
+
 </body>
 </html>
